@@ -1,13 +1,14 @@
 namespace MarkdownManager.Commands
 {
     using System;
+    using MarkdownManager.Models;
     using Paramore.Brighter;
 
     public class AddFileCommand : IRequest
     {
-        public AddFileCommand(string content)
+        public AddFileCommand(AddFileRequest addFileRequest)
         {
-            Content = content;
+            Content = addFileRequest.Content;
             Id = Guid.NewGuid();
         }
 

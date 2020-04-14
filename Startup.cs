@@ -1,12 +1,14 @@
-namespace markdown_api
+namespace MarkdownManager
 {
+    using MarkdownManager.Commands;
+    using MarkdownManager.Commands.Handlers;
     using Microsoft.AspNetCore.Builder;
     using Microsoft.AspNetCore.Hosting;
     using Microsoft.Extensions.Configuration;
     using Microsoft.Extensions.DependencyInjection;
     using Microsoft.Extensions.Hosting;
-    using Paramore.Brighter.AspNetCore;
-    using Paramore.Darker.AspNetCore;
+    using Paramore.Brighter;
+    using Paramore.Brighter.Extensions.DependencyInjection;
 
     public class Startup
     {
@@ -20,11 +22,10 @@ namespace markdown_api
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddDarker();
-
-            services.AddBrighter();
-
             services.AddControllers();
+
+            services.AddBrighter()
+                .AsyncHandlersFromAssemblies(typeof(AddFileCommandHandler).Assembly);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
