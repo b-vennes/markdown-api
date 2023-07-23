@@ -9,7 +9,7 @@
     <PackageReference Include="Markdig" Version="0.18.1" />
     <PackageReference Include="Paramore.Brighter" Version="8.1.1036" />
     <PackageReference Include="Paramore.Brighter.Extensions.DependencyInjection" Version="2.0.4" />
-    <PackageReference Include="RestSharp" Version="106.10.1" />
+    <PackageReference Include="RestSharp" Version="106.12.0" />
   </ItemGroup>
 
 
